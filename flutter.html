@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+<head>
+
+
+  <link rel="icon" type="image/png" href="assets/img/johnny.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía de Instalación de Flutter - Johnny Grefa</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --glass-bg: rgba(255,255,255,.05);
+      --glass-bd: rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+
+    body{
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 650px at 15% 0%, rgba(88,192,255,.22), transparent 55%),
+        radial-gradient(1000px 560px at 85% 10%, rgba(0,119,255,.18), transparent 55%),
+        radial-gradient(900px 520px at 50% 100%, rgba(255,0,120,.08), transparent 55%);
+    }
+
+    /* Glass card */
+    .glass{
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Hero background overlay */
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      opacity:.35;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(0,198,255,.55), transparent 42%),
+        radial-gradient(circle at 85% 10%, rgba(0,119,255,.55), transparent 40%),
+        radial-gradient(circle at 55% 85%, rgba(150,80,255,.25), transparent 45%);
+      pointer-events:none;
+    }
+
+    /* Avatar */
+    .avatar{
+      width:84px; height:84px; object-fit:cover;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    /* Hover cards */
+    .hover-card{
+      transition: transform .28s ease, box-shadow .28s ease, filter .28s ease;
+    }
+    .hover-card:hover{
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+      filter: brightness(1.05);
+    }
+
+    /* Thumbs */
+    .thumb img{
+      height: 170px;
+      object-fit: cover;
+    }
+
+    /* Command blocks */
+    code{font-size:.92rem}
+    .cmd{
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 10px 12px;
+    }
+    [data-bs-theme="light"] .cmd{
+      background: rgba(0,0,0,.04);
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    /* Buttons */
+    .cta{
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      box-shadow: 0 10px 30px rgba(255,0,0,.25);
+    }
+
+    /* Table nicer */
+    .table thead th{
+      border-bottom-color: rgba(13,202,240,.25) !important;
+    }
+
+    /* Progress ring style */
+    .progress-mini{
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    /* Small helper */
+    .badge-soft{
+      background: rgba(13,202,240,.18);
+      border: 1px solid rgba(13,202,240,.22);
+      color: #bfefff;
+    }
+    [data-bs-theme="light"] .badge-soft{
+      background: rgba(0,119,255,.10);
+      border: 1px solid rgba(0,119,255,.18);
+      color: #0b2a66;
+    }
+
+    /* Footer */
+    footer{
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <nav class="navbar border-bottom border-opacity-10">
+    <div class="container py-2">
+      <div class="d-flex align-items-center gap-2">
+        <span class="navbar-brand fw-black fw-bold mb-0">
+          Guía de Instalación de Flutter
+        </span>
+        <span class="badge rounded-pill badge-soft">Principiantes</span>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button id="btnTheme" class="btn btn-outline-info btn-sm fw-bold">
+          Cambiar tema
+        </button>
+
+        <a class="btn btn-danger btn-sm cta"
+           href="https://www.youtube.com/@j.g.grefac"
+           target="_blank" rel="noopener">
+          📺 Suscribirse al canal
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <!-- HERO -->
+    <section class="row g-3 align-items-stretch">
+      <div class="col-lg-8">
+        <div class="p-4 rounded-5 glass h-100 position-relative overflow-hidden">
+          <div class="hero-bg"></div>
+
+          <div class="position-relative">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge rounded-pill text-bg-primary">✅ Flutter SDK</span>
+              <span class="badge rounded-pill text-bg-primary">⚙️ Android Studio</span>
+              <span class="badge rounded-pill text-bg-primary">🧩 VS Code</span>
+              <span class="badge rounded-pill text-bg-primary">🚀 Primera app</span>
+            </div>
+
+            <h1 class="fw-black fw-bold display-6 mb-1">Domina Flutter desde cero</h1>
+            <p class="text-info fw-semibold mb-2">Curso práctico de desarrollo de apps móviles</p>
+
+            <p class="text-secondary mb-3">
+              Sigue esta guía paso a paso para instalar Flutter, configurar Android Studio y VS Code,
+              y ejecutar tu primera aplicación móvil de forma clara y profesional.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill text-bg-warning text-dark">
+                Desarrollado por Johnny Grefa
+              </span>
+              <span class="badge rounded-pill badge-soft">Windows 10/11</span>
+              <span class="badge rounded-pill badge-soft">Android (SDK + Emulator)</span>
+            </div>
+
+            <div class="mt-3 alert alert-info border-0 mb-0 glass">
+              <b>Consejo:</b> ejecuta <span class="fw-bold">flutter doctor</span> para ver exactamente qué te falta instalar.
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <a class="btn btn-danger cta"
+                 href="https://www.youtube.com/watch?v=15SBGoXmkv8&list=PLpXMqHlMZID4q1790FGNTe-2LfrTsHgJn"
+                 target="_blank" rel="noopener">
+                ▶️ Ver la serie completa
+              </a>
+              <a class="btn btn-outline-info cta"
+                 href="#pasos">
+                📌 Ir a los pasos
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="col-lg-4">
+        <div class="p-4 rounded-5 glass h-100 d-flex flex-column gap-3 text-center">
+          <img class="avatar mx-auto shadow" src="assets/img/johnny.png" alt="Johnny Grefa">
+          <div>
+            <div class="fw-bold fs-5">Johnny Grefa</div>
+            <div class="text-secondary small">
+              Tutoriales de programación, apps móviles y desarrollo de software.
+            </div>
+            <div class="mt-2">
+              <span class="badge rounded-pill text-bg-primary">Instructor Flutter</span>
+            </div>
+          </div>
+
+          <a class="btn btn-danger cta"
+             href="https://www.youtube.com/@j.g.grefac"
+             target="_blank" rel="noopener">
+            📺 Ir al canal
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINIATURAS -->
+    <section class="mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h2 class="h4 fw-bold mb-0">Serie de 3 videos</h2>
+        <span class="text-secondary small">Instalar → Configurar → Ejecutar</span>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="card rounded-5 thumb border-0 glass hover-card">
+            <img src="assets/img/flutter.png" class="card-img-top rounded-top-5" alt="Instalar Flutter">
+            <div class="card-body">
+              <h3 class="h6 fw-bold">1) Instalando Flutter</h3>
+              <p class="text-secondary small mb-0">Descarga, extracción, PATH y verificación con flutter doctor.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card rounded-5 thumb border-0 glass hover-card">
+            <img src="assets/img/flutter.png" class="card-img-top rounded-top-5" alt="Configurar Android Studio y VS Code">
+            <div class="card-body">
+              <h3 class="h6 fw-bold">2) Android Studio + VS Code</h3>
+              <p class="text-secondary small mb-0">SDK, Emulator, licencias y extensiones Flutter/Dart.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card rounded-5 thumb border-0 glass hover-card">
+            <img src="assets/img/flutter.png" class="card-img-top rounded-top-5" alt="Proyecto ejecutándose">
+            <div class="card-body">
+              <h3 class="h6 fw-bold">3) Proyecto funcionando</h3>
+              <p class="text-secondary small mb-0">Crear proyecto y ejecutar la app en emulador o teléfono.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA + CHECKLIST -->
+    <section id="pasos" class="row g-3 mt-4">
+      <div class="col-lg-8">
+        <div class="p-4 rounded-5 glass">
+          <h2 class="h4 fw-bold">Pasos de instalación </h2>
+          <p class="text-secondary mb-3">Sigue el orden. Marca el checklist cuando completes cada paso.</p>
+
+          <div class="table-responsive">
+            <table class="table table-dark table-hover table-bordered border-info border-opacity-25 align-middle mb-0" id="stepsTable">
+              <thead>
+                <tr>
+                  <th style="width:70px">Paso</th>
+                  <th>Acción</th>
+                  <th>Qué debes hacer</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <hr class="border-opacity-10 my-4" />
+
+          <h3 class="h5 fw-bold">Comandos útiles</h3>
+
+          <div class="cmd d-flex justify-content-between align-items-center gap-2 mb-2">
+            <code class="flex-grow-1">flutter --version</code>
+            <button class="btn btn-outline-info btn-sm fw-bold" data-copy="flutter --version">Copiar</button>
+          </div>
+
+          <div class="cmd d-flex justify-content-between align-items-center gap-2 mb-2">
+            <code class="flex-grow-1">flutter doctor</code>
+            <button class="btn btn-outline-info btn-sm fw-bold" data-copy="flutter doctor">Copiar</button>
+          </div>
+
+          <div class="cmd d-flex justify-content-between align-items-center gap-2 mb-2">
+            <code class="flex-grow-1">flutter doctor --android-licenses</code>
+            <button class="btn btn-outline-info btn-sm fw-bold" data-copy="flutter doctor --android-licenses">Copiar</button>
+          </div>
+
+          <div class="cmd d-flex justify-content-between align-items-center gap-2">
+            <code class="flex-grow-1">flutter create mi_app && cd mi_app && flutter run</code>
+            <button class="btn btn-outline-info btn-sm fw-bold" data-copy="flutter create mi_app && cd mi_app && flutter run">Copiar</button>
+          </div>
+
+          <div class="mt-3 alert alert-warning border-0 glass mb-0">
+            <b>Tip:</b> si algo sale mal, corre <b>flutter doctor</b> y revisa los ❌.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 rounded-5 glass h-100">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h4 fw-bold mb-0"></h2>
+            <button id="btnReset" class="btn btn-outline-info btn-sm fw-bold">Reiniciar</button>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="text-secondary mb-2" id="progressText">Progreso: 0%</p>
+            <span class="badge rounded-pill badge-soft" id="doneText">0/0</span>
+          </div>
+
+          <div class="progress progress-mini mb-3" role="progressbar" aria-label="Progreso">
+            <div id="progressBar" class="progress-bar bg-info" style="width:0%"></div>
+          </div>
+
+          <div id="checklist" class="d-flex flex-column gap-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO EMBEBIDO -->
+    <section class="mt-4">
+      <div class="p-4 rounded-5 glass">
+        <h2 class="h4 fw-bold">Video destacado</h2>
+        
+
+        <div class="ratio ratio-16x9 rounded-5 overflow-hidden border border-info border-opacity-25">
+          <iframe
+            src="https://www.youtube.com/embed/15SBGoXmkv8"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a class="btn btn-danger cta"
+             href="https://www.youtube.com/@j.g.grefac"
+             target="_blank" rel="noopener">
+            📺 Ver canal y suscribirse
+          </a>
+
+          <button class="btn btn-outline-info cta" id="btnHelpId">
+            ¿Cómo cambiar el video?
+          </button>
+        </div>
+
+        <div id="helpId" class="text-secondary mt-2 d-none">
+          Cambia solo esta parte:
+          <code>https://www.youtube.com/embed/15SBGoXmkv8</code>
+          por el ID de tu video.
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-secondary small mt-4">
+      © 2026 Johnny Grefa — Plataforma educativa de desarrollo de aplicaciones móviles
+    </footer>
+  </main>
+
+  <!-- Toast -->
+  <div class="position-fixed bottom-0 start-50 translate-middle-x p-3" style="z-index:1080">
+    <div id="toast" class="toast text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">Copiado ✅</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== Datos =====
+    const steps = [
+      { n: 1, accion: "Requisitos", hacer: "Windows 10/11 (64-bit) + 5–10 GB libres", resultado: "Equipo listo" },
+      { n: 2, accion: "Descargar Flutter", hacer: "Descargar Flutter SDK (Stable) para Windows (.zip)", resultado: "ZIP descargado" },
+      { n: 3, accion: "Extraer Flutter", hacer: "Descomprimir en C:\\\\src\\\\flutter", resultado: "Carpeta creada" },
+      { n: 4, accion: "Configurar PATH", hacer: "Agregar C:\\\\src\\\\flutter\\\\bin al Path", resultado: "flutter funciona" },
+      { n: 5, accion: "Verificar", hacer: "Ejecutar flutter --version", resultado: "Versión visible" },
+      { n: 6, accion: "Diagnóstico", hacer: "Ejecutar flutter doctor", resultado: "Lista de faltantes" },
+      { n: 7, accion: "Android Studio", hacer: "Instalar Android Studio", resultado: "IDE instalado" },
+      { n: 8, accion: "SDK Android", hacer: "Instalar Platform-Tools, Emulator, Build-Tools, Command-line Tools", resultado: "SDK listo" },
+      { n: 9, accion: "Licencias", hacer: "flutter doctor --android-licenses (aceptar con y)", resultado: "Licencias OK" },
+      { n: 10, accion: "Emulador", hacer: "Crear AVD (Pixel + Android 13/14)", resultado: "Emulador listo" },
+      { n: 11, accion: "VS Code", hacer: "Instalar VS Code + extensiones Flutter y Dart", resultado: "Editor listo" },
+      { n: 12, accion: "Crear proyecto", hacer: "flutter create mi_app", resultado: "Proyecto creado" },
+      { n: 13, accion: "Ejecutar app", hacer: "cd mi_app && flutter run", resultado: "App corriendo" }
+    ];
+
+    // ===== Render tabla =====
+    const tbody = document.querySelector("#stepsTable tbody");
+    tbody.innerHTML = steps.map(s => `
+      <tr>
+        <td class="fw-bold text-info">${s.n}</td>
+        <td class="fw-bold">${escapeHtml(s.accion)}</td>
+        <td>${escapeHtml(s.hacer)}</td>
+        <td>${escapeHtml(s.resultado)}</td>
+      </tr>
+    `).join("");
+
+    // ===== Checklist con localStorage =====
+    const checklistEl = document.getElementById("checklist");
+    const progressText = document.getElementById("progressText");
+    const progressBar  = document.getElementById("progressBar");
+    const doneText     = document.getElementById("doneText");
+
+    const STORAGE_KEY = "flutter_bootstrap_checklist_johnny_v2";
+
+    function loadState(){
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+    function saveState(st){ localStorage.setItem(STORAGE_KEY, JSON.stringify(st)); }
+    let state = loadState();
+
+    function renderChecklist(){
+      checklistEl.innerHTML = steps.map(s => {
+        const id = `step_${s.n}`;
+        const checked = !!state[id];
+        return `
+          <label class="d-flex gap-2 align-items-start p-3 rounded-4 border border-info border-opacity-25
+                       bg-black bg-opacity-25 shadow-sm">
+            <input class="form-check-input mt-1" type="checkbox" id="${id}" ${checked ? "checked" : ""}>
+            <div>
+              <div class="fw-bold">Paso ${s.n}: ${escapeHtml(s.accion)}</div>
+              <div class="text-secondary small">${escapeHtml(s.hacer)}</div>
+            </div>
+          </label>
+        `;
+      }).join("");
+
+      checklistEl.querySelectorAll("input[type='checkbox']").forEach(cb => {
+        cb.addEventListener("change", () => {
+          state[cb.id] = cb.checked;
+          saveState(state);
+          updateProgress();
+        });
+      });
+
+      updateProgress();
+    }
+
+    function updateProgress(){
+      const total = steps.length;
+      const done  = steps.filter(s => state[`step_${s.n}`]).length;
+      const pct   = Math.round((done / total) * 100);
+
+      progressText.textContent = `Progreso: ${pct}%`;
+      doneText.textContent = `${done}/${total}`;
+      progressBar.style.width = pct + "%";
+      progressBar.setAttribute("aria-valuenow", String(pct));
+    }
+
+    document.getElementById("btnReset").addEventListener("click", () => {
+      state = {};
+      saveState(state);
+      renderChecklist();
+      showToast("Checklist reiniciado ✅");
+    });
+
+    renderChecklist();
+
+    // ===== Copiar comandos =====
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const text = btn.getAttribute("data-copy");
+        try{
+          await navigator.clipboard.writeText(text);
+          showToast("Copiado ✅");
+        }catch{
+          const ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta);
+          ta.select(); document.execCommand("copy");
+          ta.remove();
+          showToast("Copiado ✅");
+        }
+      });
+    });
+
+    // ===== Modo oscuro/claro =====
+    const THEME_KEY = "flutter_bootstrap_theme_v2";
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+    html.setAttribute("data-bs-theme", savedTheme);
+
+    document.getElementById("btnTheme").addEventListener("click", () => {
+      const current = html.getAttribute("data-bs-theme");
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-bs-theme", next);
+      localStorage.setItem(THEME_KEY, next);
+      showToast(next === "dark" ? "Tema oscuro 🌙" : "Tema claro ☀️");
+    });
+
+    // ===== Ayuda cambiar video =====
+    document.getElementById("btnHelpId").addEventListener("click", () => {
+      document.getElementById("helpId").classList.toggle("d-none");
+    });
+
+    // ===== Toast Bootstrap =====
+    const toastEl = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    const toast = new bootstrap.Toast(toastEl, { delay: 1200 });
+
+    function showToast(msg){
+      toastMsg.textContent = msg;
+      toast.show();
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+  </script>
+</body>
+</html>
